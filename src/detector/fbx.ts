@@ -2,5 +2,7 @@ import { Detector } from '@/types'
 
 export const fbx: Detector = (file) => {
   const fileString = file.toString('utf-8')
-  return fileString.slice(0, 100).includes('FBX')
+  if (fileString.slice(0, 50).includes('Kaydara FBX Binary')) {
+    return true
+  } else return fileString.includes('FBXHeaderExtension:')
 }
