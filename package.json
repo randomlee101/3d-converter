@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "copy-files": "copyfiles -u 1 src/bin/**/* lib/",
+    "build": "tsc && npm run copy-files"
   },
   "keywords": [],
-  "author": "",
+  "author": "softsphere",
   "license": "MIT",
   "devDependencies": {
     "@types/adm-zip": "^0.5.0",
     "@types/fs-extra": "^9.0.13",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.14.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
