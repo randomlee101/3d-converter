@@ -2,8 +2,9 @@ import detector from '../detector'
 import { obj } from './obj'
 import { fbx } from './fbx'
 import { dae } from './dae'
+import { gltf } from './gltf'
 
-const converters = { obj, fbx, dae }
+const converters = { obj, fbx, dae, gltf }
 
 export default async (file: Buffer, accompaniment?: Buffer) => {
   const format = detector(file)

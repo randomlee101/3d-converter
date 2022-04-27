@@ -1,6 +1,6 @@
 import Buffer from 'buffer'
 
-export type ModelFormat = 'fbx' | 'dae' | 'obj'
+export type ModelFormat = 'fbx' | 'dae' | 'obj' | 'gltf'
 
 export type Detector = (file: Buffer) => boolean
 
