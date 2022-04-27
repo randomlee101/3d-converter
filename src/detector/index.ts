@@ -2,6 +2,7 @@ import { fbx } from './fbx'
 import { obj } from './obj'
 import { dae } from './dae'
 import { gltf } from './gltf'
+import { glb } from './glb'
 import { ModelFormat } from '@/types'
 
 export default (file: Buffer): ModelFormat | undefined => {
@@ -13,6 +14,8 @@ export default (file: Buffer): ModelFormat | undefined => {
     return 'dae'
   } else if (gltf(file)) {
     return 'gltf'
+  } else if (glb(file)) {
+    return 'glb'
   } else {
     return undefined
   }
