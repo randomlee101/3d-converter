@@ -1,5 +1,5 @@
 {
-  "name": "3d-converter",
+  "name": "3d-glb-converter",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
