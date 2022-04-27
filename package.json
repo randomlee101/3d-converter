@@ -26,9 +26,9 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
+    "@gltf-transform/core": "^2.1.4",
     "adm-zip": "^0.5.9",
     "fs-extra": "^10.1.0",
-    "gltf-pipeline": "^3.0.4",
     "obj2gltf": "^3.1.4"
   }
 }
