@@ -14,12 +14,11 @@ export default async (file: Buffer, accompaniment?: Buffer) => {
     throw new ConversionError('Format not supported')
   }
   const glb = await converters[format](file, accompaniment)
-  try {
-    await validateBytes(new Uint8Array(glb))
-    return glb
-  } catch (e) {
-    throw new ConversionError('Converted with an error')
+  const report = await validateBytes(new Uint8Array(glb))
+  if (report.issues.numErrors > 0) {
+    throw new ConversionError('Converted with errors')
   }
+  return glb
 }
 
 class ConversionError extends Error {
