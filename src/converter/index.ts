@@ -8,15 +8,17 @@ import { validateBytes } from 'gltf-validator'
 
 const converters = { obj, fbx, dae, gltf, glb }
 
-export default async (file: Buffer, accompaniment?: Buffer) => {
+export default async (file: Buffer, accompaniment?: Buffer, validate: boolean = false) => {
   const format = detector(file)
   if (!format) {
     throw new ConversionError('Format not supported')
   }
   const glb = await converters[format](file, accompaniment)
-  const report = await validateBytes(new Uint8Array(glb))
-  if (report.issues.numErrors > 0) {
-    throw new ConversionError('Converted with errors')
+  if (validate) {
+    const report = await validateBytes(new Uint8Array(glb))
+    if (report.issues.numErrors > 0) {
+      throw new ConversionError('Converted with errors')
+    }
   }
   return glb
 }
