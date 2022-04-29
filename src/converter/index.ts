@@ -17,7 +17,10 @@ export default async (file: Buffer, accompaniment?: Buffer, validate: boolean = 
   if (validate) {
     const report = await validateBytes(new Uint8Array(glb))
     if (report.issues.numErrors > 0) {
-      throw new ConversionError('Converted with errors')
+      const messages = report.issues.messages as { code: string, severity: number }[]
+      if (messages.find((message) => message.code === 'IO_ERROR' && message.severity === 0)) {
+        throw new ConversionError('Required textures could not be found')
+      }
     }
   }
   return glb
