@@ -1,7 +1,7 @@
 {
-  "name": "3d-glb-converter",
+  "name": "3d-converter",
   "version": "1.0.7",
-  "description": "",
+  "description": "Converts DAE, OBJ, FBX and GLTF to GLB",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -11,7 +11,14 @@
     "prepare": "npm run build",
     "update": "npm version patch && npm publish"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/softspheredev/3d-converter.git"
+  },
+  "keywords": [
+    "glb",
+    "gltf"
+  ],
   "author": "softsphere",
   "license": "MIT",
   "devDependencies": {
