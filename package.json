@@ -1,6 +1,6 @@
 {
   "name": "3d-converter",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Converts DAE, OBJ, FBX and GLTF to GLB",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
